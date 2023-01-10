@@ -1,0 +1,3 @@
+Snap is a one-off plugin written by request, for multiboxers, for managing screen space.
+
+When you type '/snap on' on a character, the characters screen size and location will be saved.  From then on, anytime you change to a different character, the character currently in focus will 'snap' to to the saved size and location, while whichever character was there will be sent back to the new character's original location.  For best results, launch all characters in the resolution of the snap window, and let them be shrunk when sent elsewhere.  The main use of this plugin is to allow you to automatically have your active character in focus in a larger window, while shrinking the rest to smaller windows off to the side so they are still visible.

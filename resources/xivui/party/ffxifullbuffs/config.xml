@@ -1,0 +1,274 @@
+<xivparty>
+	<panel>
+		<fade>3</fade> <!--pixel width for edge blurring-->
+		<padding>10</padding>
+		<fadecolor> <!--color edge blurs to-->
+			<alpha>0</alpha>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</fadecolor>
+		<centercolor> <!--color of center panel-->
+			<alpha>180</alpha>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</centercolor>
+	</panel>
+	
+	<member>
+		<height>55</height> <!--height of 1 member element-->
+		<width>371</width> <!--width of 1 member element-->
+		<verticalspacing>6</verticalspacing> <!--height in pixels between member elements-->
+		<bgcolor> <!--should be same color as center panel-->
+			<alpha>180</alpha>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</bgcolor>
+		
+		<name enabled="true" z="1"> <!--All text objects share same schema-->
+			<offsetx>0</offsetx> <!--distance from top left of member element-->
+			<offsety>15</offsety> <!--distance from top left of member element-->
+			<width>210</width> <!--width is used for center/right alignment-->
+			<height>18</height> <!--text is always bottom aligned in height field-->
+			<font>
+				<family>Arial</family>
+				<size>18</size>
+				<flags></flags> <!--flags should be seperated by commas and include: bold,italic,underline,strikethrough-->
+				<alignment>near</alignment> <!--near=left, center=center, far=right-->
+				<color>
+					<alpha>255</alpha>
+					<red>240</red>
+					<green>255</green>
+					<blue>255</blue>
+				</color>
+				<outline>
+					<width>1</width>
+					<color>
+						<alpha>200</alpha>
+						<red>6</red>
+						<green>45</green>
+						<blue>84</blue>
+					</color>
+				</outline>
+			</font>
+		</name>
+		
+		<jobs enabled="false" />
+		
+		<main enabled="false" />
+		
+		<sub enabled="false" />
+		
+		<zone enabled="true" z="0">
+			<offsetx>25</offsetx>
+			<offsety>18</offsety>
+			<width>326</width>
+			<height>9</height>
+			<font>
+				<family>Arial</family>
+				<size>9</size>
+				<flags></flags>
+				<alignment>near</alignment>
+				<color>
+					<alpha>255</alpha>
+					<red>180</red>
+					<green>192</green>
+					<blue>192</blue>
+				</color>
+				<outline>
+					<width>1</width>
+					<color>
+						<alpha>200</alpha>
+						<red>6</red>
+						<green>45</green>
+						<blue>84</blue>
+					</color>
+				</outline>
+			</font>
+		</zone>
+		
+		<hpbar enabled="true" z="0"> <!--Aside from colors, same params for all 3 bars-->
+			<offsetx>0</offsetx>
+			<offsety>33</offsety>
+			<width>107</width>
+			<height>11</height>
+			<fade>2</fade> <!--width of blur effect on edge of bar-->
+			<emptycolor> <!--color of empty bar-->
+				<alpha>255</alpha>
+				<red>1</red>
+				<green>37</green>
+				<blue>89</blue>
+			</emptycolor>
+			<color1> <!--Used when entity is not drawn.-->
+				<alpha>105</alpha>
+				<red>255</red>
+				<green>60</green>
+				<blue>60</blue>
+			</color1>
+			<color2> <!--Used when entity is drawn, but further than 20.8 away.-->
+				<alpha>180</alpha>
+				<red>255</red>
+				<green>60</green>
+				<blue>60</blue>
+			</color2>
+			<color3> <!--Used when entity is drawn and less than or equal to 20.8 away.-->
+				<alpha>255</alpha>
+				<red>255</red>
+				<green>60</green>
+				<blue>60</blue>
+			</color3>
+		</hpbar>
+		
+		<hptext enabled="true" z="0">
+			<offsetx>0</offsetx>
+			<offsety>33</offsety>
+			<width>107</width>
+			<height>22</height>
+			<font>
+				<family>Grammara</family>
+				<size>11</size>
+				<flags></flags>
+				<alignment>far</alignment>
+				<color>
+					<alpha>255</alpha>
+					<red>240</red>
+					<green>255</green>
+					<blue>255</blue>
+				</color>
+				<outline>
+					<width>1</width>
+					<color>
+						<alpha>200</alpha>
+						<red>6</red>
+						<green>45</green>
+						<blue>84</blue>
+					</color>
+				</outline>
+			</font>
+		</hptext>
+		
+		<mpbar enabled="true" z="0">
+			<offsetx>122</offsetx>
+			<offsety>33</offsety>
+			<width>107</width>
+			<height>11</height>
+			<fade>2</fade>
+			<emptycolor>
+				<alpha>255</alpha>
+				<red>1</red>
+				<green>37</green>
+				<blue>89</blue>
+			</emptycolor>
+			<color1> <!--MP bar doesn't change colors.  Color2 and Color3 aren't used.-->
+				<alpha>255</alpha>
+				<red>60</red>
+				<green>255</green>
+				<blue>60</blue>
+			</color1>
+		</mpbar>
+		
+		<mptext enabled="true" z="0">
+			<offsetx>122</offsetx>
+			<offsety>33</offsety>
+			<width>107</width>
+			<height>22</height>
+			<font>
+				<family>Grammara</family>
+				<size>11</size>
+				<flags></flags>
+				<alignment>far</alignment>
+				<color>
+					<alpha>255</alpha>
+					<red>240</red>
+					<green>255</green>
+					<blue>255</blue>
+				</color>
+				<outline>
+					<width>1</width>
+					<color>
+						<alpha>200</alpha>
+						<red>6</red>
+						<green>45</green>
+						<blue>84</blue>
+					</color>
+				</outline>
+			</font>
+		</mptext>
+		
+		<tpbar enabled="true" z="0">
+			<offsetx>244</offsetx>
+			<offsety>33</offsety>
+			<width>107</width>
+			<height>11</height>
+			<fade>2</fade>
+			<emptycolor>
+				<alpha>255</alpha>
+				<red>1</red>
+				<green>37</green>
+				<blue>89</blue>
+			</emptycolor>
+			<color1> <!--Used when TP is below 1000%.-->
+				<alpha>150</alpha>
+				<red>60</red>
+				<green>255</green>
+				<blue>255</blue>
+			</color1>
+			<color2> <!--Used when TP is full.  TP does not use Color3.-->
+				<alpha>255</alpha>
+				<red>60</red>
+				<green>255</green>
+				<blue>255</blue>
+			</color2>
+		</tpbar>
+		
+		<tptext enabled="true" z="0">
+			<offsetx>244</offsetx>
+			<offsety>33</offsety>
+			<width>107</width>
+			<height>22</height>
+			<font>
+				<family>Grammara</family>
+				<size>11</size>
+				<flags></flags>
+				<alignment>far</alignment>
+				<color>
+					<alpha>255</alpha>
+					<red>240</red>
+					<green>255</green>
+					<blue>255</blue>
+				</color>
+				<outline>
+					<width>1</width>
+					<color>
+						<alpha>200</alpha>
+						<red>6</red>
+						<green>45</green>
+						<blue>84</blue>
+					</color>
+				</outline>
+			</font>
+		</tptext>
+		
+		<statusicons enabled="true">
+			<iconsize>15</iconsize>
+			<bufforder>
+				<buff id="113" /> <!--Weakness-->
+				<buff id="34" />
+			</bufforder>
+			<row>
+				<offsetx>111</offsetx>
+				<offsety>1</offsety>
+				<spacing>15</spacing>
+				<count>16</count>
+			</row>
+			<row>
+				<offsetx>111</offsetx>
+				<offsety>16</offsety>
+				<spacing>15</spacing>
+				<count>16</count>
+			</row>
+		</statusicons>
+	</member>
+</xivparty>

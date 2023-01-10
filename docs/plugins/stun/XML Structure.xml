@@ -1,0 +1,37 @@
+<stunner>
+	<command action="/ma Stun %t"> <!--%t will be the monster using the ability if specified.  You can have multiple commands, each needs their own trigger lists. -->
+		<spells mode="whitelist"> <!--Mode can be whitelist or blacklist.  Whitelist will use the command when it sees a listed spell.  Blacklist will use the command when it sees a spell that isn't listed.  Defaults to whitelist.-->
+			<action name="Meteor" mobname="King Behemoth" /> <!--All parameters optional.  ID refers to spell's ID not mob's.  If any don't match, it's not considered a match.-->
+			
+			<action mobname="Dakuwaqa" /> <!--this would use the command whenever it sees a spell cast by dakuwaqa, since we're in whitelist mode.-->
+			
+			<action name="Meteor" /> <!--this would use the command whenever it sees a spell named meteor being cast by any mob-->
+			
+			<action name="Breakga" mobname="Dakuwaqa" /> <!--this would use the command when it sees breakga, but only when the caster is named dakuwaqa-->
+			
+			<!--If in blacklist mode, it will only use the command when NONE of the listed actions are matched.  Blacklist mode is for stunning most things, with only a few exceptions.-->
+		</spells>
+		
+		<abilities mode="whitelist"> <!--Works the same as spells.-->
+		</abilities>
+	</command>	<!--Close command tag after your ability and spell triggers!  If you only want to react to abilities not spells, you don't need a spell tag inside.-->
+	
+	<command action="/ja &quot;Weapon Bash&quot; %t"> <!--If you need to use quotes, use &quot; instead to avoid breaking the XML tag.-->
+		<spells mode="Whitelist">
+			<action name="Death" />
+		</spells>
+	</command>
+	
+	<turn> <!--You can use a turn tag to face away from a monster instead of using a command.-->
+		<abilities mode="whitelist">
+			<action name="Blink of Peril" />
+		</abilities>
+	</turn>
+	
+	<face> <!--You can use a face tag to face toward a monster.-->
+		<abilities mode="whitelist">
+			<action name="Chastening Disregard" />
+		</abilities>
+	</face>
+	
+</stunner>

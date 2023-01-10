@@ -1,0 +1,1 @@
+Nocombat is a very simple addon that replaces every zone's alternative music tracks(such as combat) with the default track so that the music does not change unless an event specifically initiates it.
