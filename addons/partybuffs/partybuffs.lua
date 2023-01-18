@@ -67,10 +67,7 @@ local default_settings = T{
     priority = T{},
 };
 
-settings = settingLib.load();
-if (settings.exclusions == nil) then
-    settings = settingLib.load(default_settings);
-end
+settings = settingLib.load(default_settings);
 
 settingLib.register('settings', 'settings_update', function(newSettings)
     settings = newSettings;
