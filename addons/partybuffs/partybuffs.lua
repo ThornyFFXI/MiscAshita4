@@ -1,6 +1,6 @@
 addon.name      = 'PartyBuffs';
 addon.author    = 'Thorny';
-addon.version   = '1.02';
+addon.version   = '1.03';
 addon.desc      = 'Displays party buffs next to vanilla party list.';
 addon.link      = 'https://github.com/ThornyFFXI/MiscAshita4';
 
@@ -77,7 +77,7 @@ settingLib.register('settings', 'settings_update', function(newSettings)
 end);
 
 ashita.events.register('load', 'load_cb', function ()
-    for i = 0,5 do
+    for i = 1,5 do
         local newMember = memberDisplay:New();
         newMember:Initialize(i);
         partyMembers:append(newMember);

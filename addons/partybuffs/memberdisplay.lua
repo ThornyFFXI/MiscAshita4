@@ -70,10 +70,7 @@ function member:Initialize(index)
     self.FontObject = fonts.new(settings.distance_object);
     self.FontObject.font_height = math.floor(scaling.scale_height(self.FontObject.font_height));
     self.PositionX = scaling.window.w - scaling.scale_width(135);
-    local basePositionY =  scaling.window.h - scaling.scale_height(40);
-    local partyCount = AshitaCore:GetMemoryManager():GetParty():GetAlliancePartyMemberCount1();
-    self.PositionY = basePositionY - ((partyCount - 1 - self.Index) * scaling.scale_height(20));
-    self.FontObject.position_y = self.PositionY;
+    self.BasePositionY =  scaling.window.h - scaling.scale_height(40);
 end
 
 function member:Destroy()
@@ -86,6 +83,10 @@ function member:Render()
         self.FontObject.visible = false;
         return;
     end
+    
+    local partyCount = AshitaCore:GetMemoryManager():GetParty():GetAlliancePartyMemberCount1();
+    self.PositionY = self.BasePositionY - (((partyCount - 1) - self.Index) * scaling.scale_height(20));
+    self.FontObject.position_y = self.PositionY;
 
     --Get member buffs..
     local buffs = GetBuffs(partyMgr:GetMemberServerId(self.Index));
