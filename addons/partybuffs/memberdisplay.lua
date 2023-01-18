@@ -68,7 +68,7 @@ end
 function member:Initialize(index)
     self.Index = index;
     self.FontObject = fonts.new(settings.distance_object);
-    self.FontObject.font_height = scaling.scale_height(self.FontObject.font_height);
+    self.FontObject.font_height = math.floor(scaling.scale_height(self.FontObject.font_height));
     self.PositionX = scaling.window.w - scaling.scale_width(135);
     local basePositionY =  scaling.window.h - scaling.scale_height(40);
     local partyCount = AshitaCore:GetMemoryManager():GetParty():GetAlliancePartyMemberCount1();
