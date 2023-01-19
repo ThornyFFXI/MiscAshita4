@@ -1,6 +1,6 @@
 addon.name      = 'PartyBuffs';
 addon.author    = 'Thorny';
-addon.version   = '1.04';
+addon.version   = '1.05';
 addon.desc      = 'Displays party buffs next to vanilla party list.';
 addon.link      = 'https://github.com/ThornyFFXI/MiscAshita4';
 
@@ -62,6 +62,7 @@ local default_settings = T{
         }
     },
     show_distance = true,
+    show_self = false,
     size = 20,
     exclusions = T{},
     priority = T{},
@@ -77,7 +78,7 @@ settingLib.register('settings', 'settings_update', function(newSettings)
 end);
 
 ashita.events.register('load', 'load_cb', function ()
-    for i = 1,5 do
+    for i = 0,5 do
         local newMember = memberDisplay:New();
         newMember:Initialize(i);
         partyMembers:append(newMember);
@@ -117,6 +118,13 @@ ashita.events.register('command', 'command_cb', function (e)
         settings.show_distance = not settings.show_distance;
         settingLib.save();
         print(chat.header('PartyBuffs') .. chat.message('Distance display ') .. chat.color1(2, settings.show_distance and 'enabled' or 'disabled') .. chat.message('.'));
+        return;
+    end
+    
+    if (string.lower(args[2]) == 'self') then
+        settings.show_self = not settings.show_self;
+        settingLib.save();
+        print(chat.header('PartyBuffs') .. chat.message('Self display ') .. chat.color1(2, settings.show_self and 'enabled' or 'disabled') .. chat.message('.'));
         return;
     end
 

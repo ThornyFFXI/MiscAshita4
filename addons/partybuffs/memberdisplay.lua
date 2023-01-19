@@ -33,9 +33,22 @@ local function GetStatusIconById(statusId)
     return icon;
 end
 
-local function GetBuffs(playerId)
+local function GetBuffs(index)
     local buffs = T{};
+    if (index == 0) then
+        local icons = AshitaCore:GetMemoryManager():GetPlayer():GetStatusIcons();
+        for i = 1,32 do
+            if icons[i] ~= 255 then
+                buffs:append(icons[i]);
+            else
+                break;
+            end
+        end
+        return buffs;
+    end
+
     local partyMgr = AshitaCore:GetMemoryManager():GetParty();
+    local playerId = partyMgr:GetMemberServerId(index)
     for i = 0,4 do
         if partyMgr:GetStatusIconsServerId(i) == playerId then
             local memberPtr = partyBuffs + (0x30 * i);
@@ -79,17 +92,17 @@ end
 
 function member:Render()
     local partyMgr = AshitaCore:GetMemoryManager():GetParty();
-    if partyMgr:GetMemberIsActive(self.Index) == 0 or (partyMgr:GetMemberZone(self.Index) ~= partyMgr:GetMemberZone(0)) then
+    if partyMgr:GetMemberIsActive(self.Index) == 0 or (partyMgr:GetMemberZone(self.Index) ~= partyMgr:GetMemberZone(0)) or ((settings.show_self == false) and (self.Index == 0)) then
         self.FontObject.visible = false;
         return;
     end
     
-    local partyCount = AshitaCore:GetMemoryManager():GetParty():GetAlliancePartyMemberCount1();
+    local partyCount = partyMgr:GetAlliancePartyMemberCount1();
     self.PositionY = self.BasePositionY - (((partyCount - 1) - self.Index) * scaling.scale_height(20));
     self.FontObject.position_y = self.PositionY;
 
     --Get member buffs..
-    local buffs = GetBuffs(partyMgr:GetMemberServerId(self.Index));
+    local buffs = GetBuffs(self.Index);
 
     local sorted = T{};
     for _,buff in ipairs(buffs) do
@@ -111,7 +124,7 @@ function member:Render()
     end
 
     --Update distance if necessary..
-    if (settings.show_distance) then
+    if (settings.show_distance) and (self.Index ~= 0) then
         local entityIndex = partyMgr:GetMemberTargetIndex(self.Index);
         local entMgr = AshitaCore:GetMemoryManager():GetEntity();
         local renderFlags = entMgr:GetRenderFlags0(entityIndex);
