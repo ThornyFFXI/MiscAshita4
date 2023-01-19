@@ -1,6 +1,6 @@
 addon.name      = 'PartyBuffs';
 addon.author    = 'Thorny';
-addon.version   = '1.03';
+addon.version   = '1.04';
 addon.desc      = 'Displays party buffs next to vanilla party list.';
 addon.link      = 'https://github.com/ThornyFFXI/MiscAshita4';
 

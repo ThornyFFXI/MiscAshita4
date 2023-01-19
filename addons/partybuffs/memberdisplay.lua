@@ -79,7 +79,7 @@ end
 
 function member:Render()
     local partyMgr = AshitaCore:GetMemoryManager():GetParty();
-    if partyMgr:GetMemberIsActive(self.Index) == 0 then
+    if partyMgr:GetMemberIsActive(self.Index) == 0 or (partyMgr:GetMemberZone(self.Index) ~= partyMgr:GetMemberZone(0)) then
         self.FontObject.visible = false;
         return;
     end
@@ -113,14 +113,19 @@ function member:Render()
     --Update distance if necessary..
     if (settings.show_distance) then
         local entityIndex = partyMgr:GetMemberTargetIndex(self.Index);
-        local entityDistance = math.sqrt(AshitaCore:GetMemoryManager():GetEntity():GetDistance(entityIndex));
-        self.FontObject.position_x = firstBuffPositionX - 5;
-        self.FontObject.right_aligned = true;
-        self.FontObject.text = string.format('%.1f', entityDistance);
-        self.FontObject.visible = true;
-    else
-        self.FontObject.visible = false;
+        local entMgr = AshitaCore:GetMemoryManager():GetEntity();
+        local renderFlags = entMgr:GetRenderFlags0(entityIndex);
+        if (bit.band(renderFlags, 0x200) == 0x200) and (bit.band(renderFlags, 0x4000) == 0) then        
+            local entityDistance = math.sqrt(entMgr:GetDistance(entityIndex));
+            self.FontObject.position_x = firstBuffPositionX - 5;
+            self.FontObject.right_aligned = true;
+            self.FontObject.text = string.format('%.1f', entityDistance);
+            self.FontObject.visible = true;
+            return;
+        end
     end
+
+    self.FontObject.visible = false;
 end
 
 return member;
