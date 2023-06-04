@@ -7,7 +7,7 @@ partyBuffs = ashita.memory.read_uint32(partyBuffs);
 local StatusCache = {};
 
 local function LoadStatusIconFromResource(statusId)
-    local resource = AshitaCore:GetResourceManager():GetStatusIconById(statusId);
+    local resource = AshitaCore:GetResourceManager():GetStatusIconByIndex(statusId);
 
     if resource then
         local dx_texture_ptr = ffi.new('IDirect3DTexture8*[1]');
