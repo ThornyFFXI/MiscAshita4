@@ -99,7 +99,7 @@ function member:Render()
     
     local partyCount = partyMgr:GetAlliancePartyMemberCount1();
     self.PositionY = self.BasePositionY - (((partyCount - 1) - self.Index) * scaling.scale_height(20));
-    self.FontObject.position_y = self.PositionY - 3;
+    self.FontObject.position_y = self.PositionY;
 
     --Get member buffs..
     local buffs = GetBuffs(self.Index);
