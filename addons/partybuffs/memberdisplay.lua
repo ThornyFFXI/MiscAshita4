@@ -38,7 +38,7 @@ local function GetBuffs(index)
     if (index == 0) then
         local icons = AshitaCore:GetMemoryManager():GetPlayer():GetStatusIcons();
         for i = 1,32 do
-            if icons[i] ~= 255 then
+            if icons[i] > 0 and icons[i] ~= 255 then
                 buffs:append(icons[i]);
             else
                 break;
