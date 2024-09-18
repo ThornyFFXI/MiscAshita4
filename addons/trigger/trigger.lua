@@ -1,6 +1,6 @@
 addon.name      = 'Trigger'
 addon.author    = 'Thorny';
-addon.version   = '1.0';
+addon.version   = '1.01';
 addon.desc      = 'Binds commands to shoulder buttons of controller.';
 addon.link      = 'https://ashitaxi.com/';
 
@@ -14,11 +14,12 @@ local dmap = {
     [55] = 'righttrigger'
 };
 local dState = {};
+local offset = (ashita.interface_version ~= nil) and 16 or 32;
 local xmap = {
     [8] = 'leftshoulder',
     [9] = 'rightshoulder',
-    [32] = 'lefttrigger',
-    [33] = 'righttrigger' 
+    [offset] = 'lefttrigger',
+    [offset+1] = 'righttrigger' 
 };
 local xState = {};
 
