@@ -92,7 +92,7 @@ end
 
 function member:Render()
     local partyMgr = AshitaCore:GetMemoryManager():GetParty();
-    if partyMgr:GetMemberIsActive(self.Index) == 0 or (partyMgr:GetMemberZone(self.Index) ~= partyMgr:GetMemberZone(0)) or ((settings.show_self == false) and (self.Index == 0)) then
+    if partyMgr:GetMemberIsActive(self.Index) == 0 or (partyMgr:GetMemberZone(self.Index) ~= partyMgr:GetMemberZone(0)) or (settings.global_toggle == false) or ((settings.show_self == false) and (self.Index == 0)) then
         self.FontObject.visible = false;
         return;
     end

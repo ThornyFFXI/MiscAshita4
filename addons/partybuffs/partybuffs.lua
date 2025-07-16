@@ -1,6 +1,6 @@
 addon.name      = 'PartyBuffs';
 addon.author    = 'Thorny';
-addon.version   = '1.07';
+addon.version   = '1.08';
 addon.desc      = 'Displays party buffs next to vanilla party list.';
 addon.link      = 'https://github.com/ThornyFFXI/MiscAshita4';
 
@@ -62,6 +62,7 @@ local default_settings = T{
         }
     },
     show_distance = true,
+	global_toggle = true,
     show_self = false,
     size = 20,
     exclusions = T{},
@@ -110,10 +111,31 @@ ashita.events.register('command', 'command_cb', function (e)
     end
     e.blocked = true;
 
-    if (#args < 2) then
+    if (#args < 1) then
         return;
     end
-    
+
+    if (#args == 1) then
+        settings.global_toggle = not settings.global_toggle;
+        settingLib.save();
+        print(chat.header('PartyBuffs') .. chat.message('Global Toggle ') .. chat.color1(2, settings.global_toggle and 'enabled' or 'disabled') .. chat.message('.'));
+        return;
+	end
+
+    if (string.lower(args[2]) == 'on') then
+        settings.global_toggle = true;
+        settingLib.save();
+        print(chat.header('PartyBuffs') .. chat.message('Global Toggle ') .. chat.color1(2, settings.global_toggle and 'enabled' or 'disabled') .. chat.message('.'));
+        return;
+    end
+    if (string.lower(args[2]) == 'off') then
+        settings.global_toggle = false;
+        settingLib.save();
+        print(chat.header('PartyBuffs') .. chat.message('Global Toggle ') .. chat.color1(2, settings.global_toggle and 'enabled' or 'disabled') .. chat.message('.'));
+        return;
+    end
+
+
     if (string.lower(args[2]) == 'distance') then
         settings.show_distance = not settings.show_distance;
         settingLib.save();
