@@ -89,9 +89,10 @@ function gui:tick()
                 end
                 imgui.EndTabItem();
             end
-            
+            imgui.EndTabBar();
         end
     end
+    imgui.End();
 end
 
 function gui:show()
