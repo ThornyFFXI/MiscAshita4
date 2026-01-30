@@ -17,7 +17,7 @@ function gui:tick()
         if imgui.BeginTabBar('##CleanupTabBar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton) then
             if imgui.BeginTabItem('Users##CleanupUserTab') then
                 imgui.TextColored(header, 'Blocked Users');
-                imgui.BeginChild('pane', { 450, 280 }, true);
+                imgui.BeginChild('pane', { 450, 280 }, ImGuiChildFlags_Borders);
                 local users = T{};
                 for user,_ in pairs(settings.Names) do
                     users:append(user)
@@ -56,7 +56,7 @@ function gui:tick()
 
             if imgui.BeginTabItem('Terms##CleanupTermsTab') then
                 imgui.TextColored(header, 'Blocked Terms');
-                imgui.BeginChild('pane', { 450, 280 }, true);
+                imgui.BeginChild('pane', { 450, 280 }, ImGuiChildFlags_Borders);
                 local deleted = T{}
                 for _,term in ipairs(settings.Terms) do
                     if imgui.Selectable(term, self.SelectedTerm == term) then

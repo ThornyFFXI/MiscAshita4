@@ -2,7 +2,7 @@
 addon.author   = 'Thorny';
 addon.name     = 'Cleanup';
 addon.desc     = 'Blacklist replacement & Log filter';
-addon.version  = '0.0';
+addon.version  = '1.00';
 
 require ('common');
 chat = require('chat')
